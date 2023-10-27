@@ -8,6 +8,9 @@ import {
 
 import { Link } from "react-router-dom";
 
+// Logo Image
+import Logo from "./../../assets/images/EasyBazaarLogoDark1.png"
+
 const user = {
   name: "Tom Cook",
   email: "tom@example.com",
@@ -43,8 +46,8 @@ function NavBar({ children }) {
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
                       <img
-                        className="h-8 w-8"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                        className="h-72 w-18"
+                        src={Logo}
                         alt="Your Company"
                       />
                     </div>
@@ -130,7 +133,7 @@ function NavBar({ children }) {
                       </Menu>
                     </div>
                   </div>
-                  <div className="-mr-2 flex md:hidden">
+                  <div className=" -mr-2 flex md:hidden">
                     {/* Mobile menu button */}
                     <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-0.5" />
