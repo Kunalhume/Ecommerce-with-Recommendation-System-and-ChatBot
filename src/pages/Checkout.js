@@ -28,6 +28,25 @@ const products = [
   // More products...
 ];
 
+const addresses = [
+  {
+    name: "John Wick",
+    street: "11th Main",
+    city: "Nanded",
+    pinCode: 431606,
+    state: "Maharashtra",
+    phone: 9824532315,
+  },
+  {
+    name: "John Doe",
+    street: "15th Main",
+    city: "Mumbai",
+    pinCode: 400102,
+    state: "Maharashtra",
+    phone: 8724125431,
+  },
+];
+
 function Checkout() {
   return (
     <>
@@ -38,7 +57,7 @@ function Checkout() {
               <div className="space-y-12">
                 <div className="border-b pt-8 border-gray-900/10 pb-12">
                   <h2 className="text-base font-semibold leading-7 text-gray-900">
-                    Personal Information
+                    addressal Information
                   </h2>
                   <p className="mt-1 text-sm leading-6 text-gray-600">
                     Use a permanent address where you can receive mail.
@@ -196,134 +215,90 @@ function Checkout() {
 
                 <div className="border-b border-gray-900/10 pb-12">
                   <h2 className="text-base font-semibold leading-7 text-gray-900">
-                    Notifications
+                    Address
                   </h2>
                   <p className="mt-1 text-sm leading-6 text-gray-600">
-                    We'll always let you know about important changes, but you
-                    pick what else you want to hear about.
+                    Choose from Existing Addresses
                   </p>
+                  {/* Addresses List Start*/}
+                  <ul role="list" >
+                    {addresses.map((address) => (
+                      <li
+                        key={address.email}
+                        className="flex justify-between gap-x-6 py-5 px-5 border-solid border-2 border-color-grey-200 p-2"
+                      >
+                        <div className="flex min-w-0 gap-x-4">
+                          {/* <img
+                            className="h-12 w-12 flex-none rounded-full bg-gray-50"
+                            src={address.imageUrl}
+                            alt=""
+                          /> */}
+                          <input
+                            id="card"
+                            name="address"
+                            type="radio"
+                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                          />
+                          <div className="min-w-0 flex-auto">
+                            <p className="text-sm font-semibold leading-6 text-gray-900">
+                              {address.name}
+                            </p>
+                            <p className="mt-1 truncate text-xs leading-5 text-gray-500">
+                              {address.street}
+                            </p>
+                            <p className="text-sm leading-6 text-gray-500">
+                              Pincode : {address.pinCode}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+                          <p className="text-sm leading-6 text-gray-900">
+                            Phone : +91 {address.phone}
+                          </p>
+                          <p className="text-sm leading-6 text-gray-500">
+                            {address.city}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                  {/* Addresses List end*/}
 
                   <div className="mt-10 space-y-10">
                     <fieldset>
                       <legend className="text-sm font-semibold leading-6 text-gray-900">
-                        By Email
-                      </legend>
-                      <div className="mt-6 space-y-6">
-                        <div className="relative flex gap-x-3">
-                          <div className="flex h-6 items-center">
-                            <input
-                              id="comments"
-                              name="comments"
-                              type="checkbox"
-                              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                            />
-                          </div>
-                          <div className="text-sm leading-6">
-                            <label
-                              htmlFor="comments"
-                              className="font-medium text-gray-900"
-                            >
-                              Comments
-                            </label>
-                            <p className="text-gray-500">
-                              Get notified when someones posts a comment on a
-                              posting.
-                            </p>
-                          </div>
-                        </div>
-                        <div className="relative flex gap-x-3">
-                          <div className="flex h-6 items-center">
-                            <input
-                              id="candidates"
-                              name="candidates"
-                              type="checkbox"
-                              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                            />
-                          </div>
-                          <div className="text-sm leading-6">
-                            <label
-                              htmlFor="candidates"
-                              className="font-medium text-gray-900"
-                            >
-                              Candidates
-                            </label>
-                            <p className="text-gray-500">
-                              Get notified when a candidate applies for a job.
-                            </p>
-                          </div>
-                        </div>
-                        <div className="relative flex gap-x-3">
-                          <div className="flex h-6 items-center">
-                            <input
-                              id="offers"
-                              name="offers"
-                              type="checkbox"
-                              className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                            />
-                          </div>
-                          <div className="text-sm leading-6">
-                            <label
-                              htmlFor="offers"
-                              className="font-medium text-gray-900"
-                            >
-                              Offers
-                            </label>
-                            <p className="text-gray-500">
-                              Get notified when a candidate accepts or rejects
-                              an offer.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </fieldset>
-                    <fieldset>
-                      <legend className="text-sm font-semibold leading-6 text-gray-900">
-                        Push Notifications
+                        Payment Methods
                       </legend>
                       <p className="mt-1 text-sm leading-6 text-gray-600">
-                        These are delivered via SMS to your mobile phone.
+                        Choose one
                       </p>
                       <div className="mt-6 space-y-6">
                         <div className="flex items-center gap-x-3">
                           <input
-                            id="push-everything"
-                            name="push-notifications"
+                            id="cash"
+                            name="payments"
                             type="radio"
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
                           <label
-                            htmlFor="push-everything"
+                            htmlFor="cash"
                             className="block text-sm font-medium leading-6 text-gray-900"
                           >
-                            Everything
+                            Cash
                           </label>
                         </div>
                         <div className="flex items-center gap-x-3">
                           <input
-                            id="push-email"
-                            name="push-notifications"
+                            id="card"
+                            name="payments"
                             type="radio"
                             className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
                           />
                           <label
-                            htmlFor="push-email"
+                            htmlFor="card"
                             className="block text-sm font-medium leading-6 text-gray-900"
                           >
-                            Same as email
-                          </label>
-                        </div>
-                        <div className="flex items-center gap-x-3">
-                          <input
-                            id="push-nothing"
-                            name="push-notifications"
-                            type="radio"
-                            className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                          />
-                          <label
-                            htmlFor="push-nothing"
-                            className="block text-sm font-medium leading-6 text-gray-900"
-                          >
-                            No push notifications
+                            Card Payments
                           </label>
                         </div>
                       </div>
