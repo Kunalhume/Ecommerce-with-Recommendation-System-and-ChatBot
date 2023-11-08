@@ -16,6 +16,12 @@ import UserProfilePage from './pages/UserProfilePage.js';
 import OrderSuccessPage from './pages/OrderSuccessPage.js';
 import UserOrdersPage from './pages/UserOrdersPage.js';
 import { fetchLoggedInUserAsync } from './features/User/userSlice.js';
+import Logout from './features/auth/components/Logout.js';
+import ForgotPasswordPage from './pages/ForgotPasswordPage.js';
+import ProtectedAdmin from './features/auth/components/ProtectedAdmin.js';
+import AdminHome  from './pages/AdminHome.js'
+import AdminProductDetailPage from './pages/AdminProductDetailPage.js';
+import AdminProductFormPage from './pages/AdminProductFormPage.js';
 
 function App() {
   const dispatch =useDispatch();
@@ -31,15 +37,21 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Protected> <Home/></Protected>} />
+        <Route exact path="/admin" element={<ProtectedAdmin> <AdminHome/></ProtectedAdmin>} />
         <Route path="/login" element={<LoginPage/>} />
         <Route path="/signup" element={<SignupPage/>} />
         <Route path="/cart" element={<Protected><CartPage/></Protected>} />
         <Route path="/checkout" element={<Protected><Checkout/></Protected>} />
         <Route path="/product-detail/:id" element={<Protected><ProductDetailPage/></Protected>} />
+        <Route path="/admin/product-detail/:id" element={<ProtectedAdmin><AdminProductDetailPage/></ProtectedAdmin>} />
         <Route path="*" element={<PageNotFound/>} />
         <Route path="/order-success/:id" element={<OrderSuccessPage/>} />
         <Route path="/orders" element={<UserOrdersPage/>} />
         <Route path="/profile" element={<UserProfilePage/>} />
+        <Route path="/logout" element={<Logout/>} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage/>} />
+        <Route path="/admin/product-form" element={<ProtectedAdmin><AdminProductFormPage/></ProtectedAdmin>} />
+        <Route path="/admin/product-form/edit/:id" element={<ProtectedAdmin><AdminProductFormPage/></ProtectedAdmin>} />
         </Routes>
     </BrowserRouter>
   );

@@ -6,10 +6,10 @@ import {
   fetchProductByIdAsync,
   selectProductById,
   selectProductListStatus,
-} from '../productSlice';
+} from '../../product/productSlice.js';
 import {selectLoggedInUser} from '../../auth/authSlice.js'
 import { useParams } from 'react-router-dom';
-import { addToCartAsync } from '../../cart/cartSlice';
+import { addToCartAsync } from '../../cart/cartSlice.js';
 
 const colors= [
   { name: 'White', class: 'bg-white', selectedClass: 'ring-gray-400' },
@@ -38,7 +38,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ProductDetail() {
+export default function AdminProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0])
   const [selectedSize, setSelectedSize] = useState(sizes[2])
   const product =useSelector(selectProductById);

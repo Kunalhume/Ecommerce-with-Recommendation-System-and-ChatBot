@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchAllProductsAsync, fetchProductsByFiltersAsync, selectAllProducts, selectCategories, selectTotalItems,selectBrands, fetchBrandsAsync, fetchCategoriesAsync } from "../productSlice";
+import { fetchAllProductsAsync, fetchProductsByFiltersAsync, selectAllProducts, selectCategories, selectTotalItems,selectBrands, fetchBrandsAsync, fetchCategoriesAsync } from "../../product/productSlice";
 import { Link } from "react-router-dom";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XMarkIcon ,StarIcon} from "@heroicons/react/24/outline";
@@ -27,7 +27,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function ProductList() {
+export default function AdminProductList() {
   const dispatch = useDispatch();
   const products =useSelector(selectAllProducts);
   const brands =useSelector(selectBrands);
@@ -182,7 +182,15 @@ export default function ProductList() {
 
                 <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                  <DesktopFilter handleFilter={handleFilter} filters={filters}></DesktopFilter>
+                 
                   <div className="lg:col-span-3">
+                  <div>
+                    <Link 
+                    to="/admin/product-form"
+                    className="rounded-md  mx-10 my-5 bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
+                              Add New Product
+                    </Link>
+                  </div>
                     <ProductGrid products={products}></ProductGrid>
                   </div>
                 </div>
@@ -472,6 +480,7 @@ function ProductGrid({products}){
 
       <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
         {products.map((product) => (
+          <div>
           <Link to={`/product-detail/${product.id}`} key={product.id}>
             <div  className="group relative border-solid border-2 p-2 border-gray-200 ">
               <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
@@ -481,7 +490,7 @@ function ProductGrid({products}){
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
               </div>
-              <div className="mt-4 flex justify-between">
+             <div className="mt-4 flex justify-between">
                 <div>
                   <h3 className="text-sm text-gray-700">
                     <div href={product.thumbnail}>
@@ -506,12 +515,22 @@ function ProductGrid({products}){
                   </p>
                   
                 </div>
+                
               </div>
-              {product.deleted && (<div>
+              {product.deleted && <div>
                <p className="text-sm text-red-400">Product Deleted</p>
-              </div>)}
+              </div>}
+             
             </div>
           </Link>
+          <div className="mt-5">
+            <Link
+            to={`/admin/product-form/edit/${product.id}`}
+             className="rounded-md  my-5 bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" >
+                      Edit Product
+            </Link>
+          </div>
+          </div>
         ))}
       </div>
     </div>
