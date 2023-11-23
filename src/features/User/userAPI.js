@@ -27,6 +27,7 @@ export function updateUser(update) {
       headers:{'content-type':'application/json'}
     })  
     const data = await response.json()
+    
    resolve({data})  
   }
   );

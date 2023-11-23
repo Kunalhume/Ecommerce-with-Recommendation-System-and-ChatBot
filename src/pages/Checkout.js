@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import {  updateUserAsync } from "../features/auth/authSlice";
 import { createOrderAsync, selectCurrentOrder} from '../features/order/orderSlice';
 import { selectUserInfo } from "../features/User/userSlice";
+import { discountedPrice } from "../app/constants";
 
 function Checkout() {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ function Checkout() {
   const currentOrder=useSelector(selectCurrentOrder);
 
   const totalAmount =items.reduce((amount,item)=>item.price*item.quantity+amount ,0)
-  const totalItems =items.reduce((total,item)=>item.quantity+total ,0)
+  const totalItems =items.reduce((total,item)=>discountedPrice(item)*item.quantity+total ,0)
   const user=useSelector(selectUserInfo)
 
   const [selectedAddress, setSelectedAddress] = useState(null);
@@ -225,9 +226,8 @@ function Checkout() {
                   <p className="mt-1 text-sm leading-6 text-gray-600">
                     Choose from Existing Addresses
                   </p>
-                  {/* Addresses List Start*/}
-                  <ul role="list" >
-                    {user.addresses.map((address,index) => (
+                  <ul >
+                    {user.addresses && user.addresses.map((address,index) => (
                       <li
                         key={index}
                         className="flex justify-between gap-x-6 py-5 px-5 border-solid border-2 border-color-grey-200 p-2"
@@ -339,7 +339,7 @@ function Checkout() {
            Cart
           </h1>
           <div className="flow-root">
-            <ul role="list" className="-my-6 divide-y divide-gray-200">
+            <ul  className="-my-6 divide-y divide-gray-200">
               {items.map((item) => (
                 <li key={item.id} className="flex py-6">
                   <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -356,7 +356,7 @@ function Checkout() {
                         <h3>
                           <a href={item.href}>{item.title}</a>
                         </h3>
-                        <p className="ml-4">${item.price}</p>
+                        <p className="ml-4">${discountedPrice(item)}</p>
                       </div>
                       <p className="mt-1 text-sm text-gray-500">
                         {item.brand}

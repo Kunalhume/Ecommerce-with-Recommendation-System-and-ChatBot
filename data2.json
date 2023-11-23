@@ -35,7 +35,8 @@
         "https://i.dummyjson.com/data/products/2/2.jpg",
         "https://i.dummyjson.com/data/products/2/3.jpg",
         "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-      ]
+      ],
+      "deleted": true
     },
     {
       "id": 3,
@@ -51,7 +52,6 @@
       "images": [
         "https://i.dummyjson.com/data/products/3/1.jpg"
       ]
-      
     },
     {
       "id": 4,
@@ -2392,29 +2392,66 @@
           "postalcode": "321213",
           "phone": "482013018",
           "street": "lorem ipsum"
+        },
+        {
+          "name": "junney",
+          "email": "test@gmail.com",
+          "phone": "35657194143",
+          "street": "new delhi",
+          "city": "delhi",
+          "region": "delhi",
+          "postalcode": "423811"
         }
       ],
       "id": 1
     },
     {
-      "email": "test@gmail.com",
-      "password": "Pass@1234",
-      "addresses": [],
-      "id": 2
-    },
-    {
       "email": "demo@gmail.com",
       "password": "Demo@1234",
       "role": "user",
-      "addresses": [],
-      "id": 3
+      "addresses": [
+        {
+          "name": "jenny Doe",
+          "email": "junnet@gmail.com",
+          "phone": "2341568790",
+          "street": "greater Noida",
+          "city": "Delhi",
+          "region": "Delhi",
+          "postalcode": "278291"
+        }
+      ],
+      "id": 2
     },
     {
       "email": "admin@gmail.com",
       "password": "Admin#123",
       "addresses": [],
       "role": "admin",
+      "id": 3
+    },
+    {
+      "email": "trial@gmail.com",
+      "password": "Trial#456",
+      "addresses": [],
+      "role": "user",
       "id": 4
+    },
+    {
+      "email": "amruta@gmail.com",
+      "password": "Pass@4567",
+      "addresses": [
+        {
+          "name": "Amruta",
+          "email": "amruta@gmail.com",
+          "phone": "2393489386",
+          "street": "vishnupuri",
+          "city": "nanded",
+          "region": "Maharashtra",
+          "postalcode": "341602"
+        }
+      ],
+      "role": "user",
+      "id": 5
     }
   ],
   "cart": [],
@@ -2422,63 +2459,55 @@
     {
       "items": [
         {
-          "title": "Steel Analog Couple Watches",
-          "description": "Elegant design, Stylish ,Unique & Trendy,Comfortable wear",
-          "price": 35,
-          "discountPercentage": 3.23,
-          "rating": 4.79,
-          "stock": 24,
-          "brand": "Eastern Watches",
-          "category": "womens-watches",
-          "thumbnail": "https://i.dummyjson.com/data/products/66/thumbnail.jpg",
+          "title": "MacBook Pro",
+          "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+          "price": 1999,
+          "discountPercentage": 11.02,
+          "rating": 0,
+          "stock": 83,
+          "brand": "Apple",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
           "images": [
-            "https://i.dummyjson.com/data/products/66/1.jpg",
-            "https://i.dummyjson.com/data/products/66/2.jpg",
-            "https://i.dummyjson.com/data/products/66/3.jpg",
-            "https://i.dummyjson.com/data/products/66/4.JPG",
-            "https://i.dummyjson.com/data/products/66/thumbnail.jpg"
+            "https://i.dummyjson.com/data/products/6/1.png",
+            "https://i.dummyjson.com/data/products/6/2.jpg",
+            "https://i.dummyjson.com/data/products/6/3.png",
+            "https://i.dummyjson.com/data/products/6/thumbnail.png"
           ],
+          "productId": 6,
           "quantity": 1,
-          "user": 1,
+          "user": 2,
           "id": 1
         }
       ],
-      "totalAmount": 35,
-      "totalItems": 1,
+      "totalAmount": 1999,
+      "totalItems": 1779,
       "user": {
-        "email": "test@gmail.com",
-        "password": "Pass@123",
+        "email": "demo@gmail.com",
+        "password": "Demo@1234",
+        "role": "user",
         "addresses": [
           {
-            "name": "Amruta Pede",
-            "email": "trial@gmail.com",
-            "phone": "1234568790",
-            "street-address": "nanded",
-            "city": "nanded",
-            "region": "maharashtra",
-            "postal-code": "431606"
-          },
-          {
-            "name": "Amruta Pede",
-            "email": "test@gmail.com",
-            "phone": "123422344",
-            "street-address": "hingoli",
-            "city": "hingoli",
-            "region": "Maharashtra",
-            "postal-code": "431701"
+            "name": "jenny Doe",
+            "email": "junnet@gmail.com",
+            "phone": "2341568790",
+            "street": "greater Noida",
+            "city": "Delhi",
+            "region": "Delhi",
+            "postalcode": "278291"
           }
         ],
-        "id": 1
+        "id": 2
       },
       "paymentMethod": "cash",
       "selectedAddress": {
-        "name": "Amruta Pede",
-        "email": "test@gmail.com",
-        "phone": "123422344",
-        "street-address": "hingoli",
-        "city": "hingoli",
-        "region": "Maharashtra",
-        "postal-code": "431701"
+        "name": "jenny Doe",
+        "email": "junnet@gmail.com",
+        "phone": "2341568790",
+        "street": "greater Noida",
+        "city": "Delhi",
+        "region": "Delhi",
+        "postalcode": "278291"
       },
       "status": "pending",
       "id": 1
@@ -2486,172 +2515,58 @@
     {
       "items": [
         {
-          "title": "Samsung Universe 9",
-          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-          "price": 1249,
-          "discountPercentage": 15.46,
-          "rating": 4.09,
-          "stock": 36,
-          "brand": "Samsung",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+          "title": "sneakers",
+          "description": "black sneakers",
+          "brand": "Sneakers",
+          "category": "mens-shoes",
+          "price": "150",
+          "discountPercentage": "5",
+          "stock": "50",
+          "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLbNVK1hPKZo3INwd4GD7z30NmDVKAiRLX8w&usqp=CAU",
           "images": [
-            "https://i.dummyjson.com/data/products/3/1.jpg"
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLbNVK1hPKZo3INwd4GD7z30NmDVKAiRLX8w&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLbNVK1hPKZo3INwd4GD7z30NmDVKAiRLX8w&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLbNVK1hPKZo3INwd4GD7z30NmDVKAiRLX8w&usqp=CAU",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLbNVK1hPKZo3INwd4GD7z30NmDVKAiRLX8w&usqp=CAU"
           ],
-          "deleted": true,
+          "rating": 0,
+          "productId": 102,
           "quantity": 1,
-          "user": 1,
+          "user": 5,
           "id": 1
         }
       ],
-      "totalAmount": 1249,
-      "totalItems": 1,
+      "totalAmount": 150,
+      "totalItems": 143,
       "user": {
-        "email": "test@gmail.com",
-        "password": "Pass@123",
+        "email": "amruta@gmail.com",
+        "password": "Pass@4567",
         "addresses": [
           {
-            "name": "Amruta Pede",
-            "email": "trial@gmail.com",
-            "phone": "1234568790",
-            "street-address": "nanded",
+            "name": "Amruta",
+            "email": "amruta@gmail.com",
+            "phone": "2393489386",
+            "street": "vishnupuri",
             "city": "nanded",
-            "region": "maharashtra",
-            "postal-code": "431606"
-          },
-          {
-            "name": "Amruta Pede",
-            "email": "test@gmail.com",
-            "phone": "123422344",
-            "street-address": "hingoli",
-            "city": "hingoli",
             "region": "Maharashtra",
-            "postal-code": "431701"
+            "postalcode": "341602"
           }
         ],
-        "id": 1
-      },
-      "paymentMethod": "card",
-      "selectedAddress": {
-        "name": "Amruta Pede",
-        "email": "test@gmail.com",
-        "phone": "123422344",
-        "street-address": "hingoli",
-        "city": "hingoli",
-        "region": "Maharashtra",
-        "postal-code": "431701"
-      },
-      "status": "pending",
-      "id": 2
-    },
-    {
-      "items": [
-        {
-          "title": "Plant Hanger For Home",
-          "description": "Boho Decor Plant Hanger For Home Wall Decoration Macrame Wall Hanging Shelf",
-          "price": 41,
-          "discountPercentage": 17.86,
-          "rating": 4.08,
-          "stock": 131,
-          "brand": "Boho Decor",
-          "category": "home-decoration",
-          "thumbnail": "https://i.dummyjson.com/data/products/26/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/26/1.jpg",
-            "https://i.dummyjson.com/data/products/26/2.jpg",
-            "https://i.dummyjson.com/data/products/26/3.jpg",
-            "https://i.dummyjson.com/data/products/26/4.jpg",
-            "https://i.dummyjson.com/data/products/26/5.jpg",
-            "https://i.dummyjson.com/data/products/26/thumbnail.jpg"
-          ],
-          "quantity": 1,
-          "user": 1,
-          "id": 1
-        }
-      ],
-      "totalAmount": 41,
-      "totalItems": 1,
-      "user": {
-        "email": "test@gmail.com",
-        "password": "Pass@123",
-        "addresses": [
-          {
-            "name": "Amruta Pede",
-            "email": "trial@gmail.com",
-            "phone": "1234568790",
-            "street-address": "nanded",
-            "city": "nanded",
-            "region": "maharashtra",
-            "postal-code": "431606"
-          }
-        ],
-        "id": 1
+        "role": "user",
+        "id": 5
       },
       "paymentMethod": "cash",
       "selectedAddress": {
-        "name": "Amruta Pede",
-        "email": "trial@gmail.com",
-        "phone": "1234568790",
-        "street-address": "nanded",
+        "name": "Amruta",
+        "email": "amruta@gmail.com",
+        "phone": "2393489386",
+        "street": "vishnupuri",
         "city": "nanded",
-        "region": "maharashtra",
-        "postal-code": "431606"
+        "region": "Maharashtra",
+        "postalcode": "341602"
       },
       "status": "pending",
-      "id": 3
-    },
-    {
-      "items": [
-        {
-          "title": "Samsung Universe 9",
-          "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-          "price": 1249,
-          "discountPercentage": 15.46,
-          "rating": 4.09,
-          "stock": 36,
-          "brand": "Samsung",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-          "images": [
-            "https://i.dummyjson.com/data/products/3/1.jpg"
-          ],
-          "deleted": true,
-          "quantity": 1,
-          "user": 1,
-          "id": 1
-        }
-      ],
-      "totalAmount": 1249,
-      "totalItems": 1,
-      "user": {
-        "email": "test@gmail.com",
-        "password": "Pass@123",
-        "addresses": [
-          {
-            "name": "Amruta Pede",
-            "email": "trial@gmail.com",
-            "phone": "1234568790",
-            "street-address": "nanded",
-            "city": "nanded",
-            "region": "maharashtra",
-            "postal-code": "431606"
-          },
-          {
-            "name": "Xyz",
-            "email": "xyz@gmail.com",
-            "phone": "74829210981",
-            "street": "main road",
-            "city": "vishnupuri",
-            "region": "Maharashtra",
-            "postalcode": "4312201"
-          }
-        ],
-        "id": 1
-      },
-      "paymentMethod": null,
-      "selectedAddress": null,
-      "status": "pending",
-      "id": 4
+      "id": 2
     }
   ]
 }
