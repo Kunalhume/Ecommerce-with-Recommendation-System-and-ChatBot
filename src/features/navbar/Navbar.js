@@ -6,28 +6,25 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 // Logo Image
 import Logo from "./../../assets/images/EasyBazaarLogoDark1.png"
+import { useSelector } from "react-redux";
+import { selectItems } from "../cart/cartSlice";
+import { selectLoggedInUser } from "../auth/authSlice";
 
-const user = {
-  name: "Tom Cook",
-  email: "tom@example.com",
-  imageUrl:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-};
+
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
-  // { name: "Projects", href: "#", current: false },
-  // { name: "Calendar", href: "#", current: false },
-  // { name: "Reports", href: "#", current: false },
+    { name: 'Products', link: '/', user: true },
+    { name: 'products', link: '/admin', admin: true },
+    { name: 'Orders', link: '/admin/orders', admin: true },
+
 ];
 const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
+  { name: "My Profile", link: "/profile" },
+  { name: "My Orders", link: "/orders" },
+  { name: "Sign out", link: "/logout" },
 ];
 
 function classNames(...classes) {
@@ -35,6 +32,9 @@ function classNames(...classes) {
 }
 
 function NavBar({ children }) {
+  const items =useSelector(selectItems);
+  const user=useSelector(selectLoggedInUser);
+
   return (
     <>
       <div className="min-h-full">
@@ -45,18 +45,19 @@ function NavBar({ children }) {
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex items-center">
                     <div className="flex-shrink-0">
-                      <img
-                        className="h-72 w-18"
-                        src={Logo}
-                        alt="Your Company"
-                      />
+                      <Link to="/">
+                        <img
+                          className="h-72 w-18"
+                          src={Logo}
+                          alt="Your Company"
+                        />
+                      </Link>
                     </div>
                     <div className="hidden md:block">
                       <div className="ml-10 flex items-baseline space-x-4">
-                        {navigation.map((item) => (
-                          <a
+                        {navigation.map((item) => ( item[user.role] ? <Link
                             key={item.name}
-                            href={item.href}
+                            to={item.link}
                             className={classNames(
                               item.current
                                 ? "bg-gray-900 text-white"
@@ -66,7 +67,7 @@ function NavBar({ children }) {
                             aria-current={item.current ? "page" : undefined}
                           >
                             {item.name}
-                          </a>
+                          </Link>:null
                         ))}
                       </div>
                     </div>
@@ -86,10 +87,10 @@ function NavBar({ children }) {
                           />
                         </button>
                       </Link>
-                      <span className="inline-flex items-center rounded-md mb-7 -ml-3 z-10 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                        3
+                      {items.length > 0 && <span className="inline-flex items-center rounded-md mb-7 -ml-3 z-10 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                      {items.length}
                       </span>
-
+                       }
                       {/* Profile dropdown */}
                       <Menu as="div" className="relative ml-3">
                         <div>
@@ -116,15 +117,15 @@ function NavBar({ children }) {
                             {userNavigation.map((item) => (
                               <Menu.Item key={item.name}>
                                 {({ active }) => (
-                                  <a
-                                    href={item.href}
+                                  <Link
+                                   to={item.link}
                                     className={classNames(
                                       active ? "bg-gray-100" : "",
                                       "block px-4 py-2 text-sm text-gray-700"
                                     )}
                                   >
                                     {item.name}
-                                  </a>
+                                  </Link>
                                 )}
                               </Menu.Item>
                             ))}
@@ -203,9 +204,10 @@ function NavBar({ children }) {
                         />
                       </button>
                     </Link>
-                    <span className="inline-flex items-center rounded-md mb-7 -ml-3 z-10 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
-                      3
+                    {items.length > 0 &&<span className="inline-flex items-center rounded-md mb-7 -ml-3 z-10 bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                      {items.length}
                     </span>
+                    }
                   </div>
                   <div className="mt-3 space-y-1 px-2">
                     {userNavigation.map((item) => (

@@ -1,5 +1,8 @@
-import ProductList from "../features/product-list/components/ProductList";
+import ProductList from "../features/product/components/ProductList";
+
 import NavBar from "../features/navbar/Navbar";
+import Footer from "../features/common/Footer";
+//import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -7,6 +10,7 @@ function Home() {
       <NavBar>
         <ProductList></ProductList>
       </NavBar>
+     <Footer> </Footer>
     </div>
   );
 }
