@@ -9,7 +9,7 @@ import {
 import { Link, NavLink } from "react-router-dom";
 
 // Logo Image
-import Logo from "./../../assets/images/EasyBazaarLogoDark1.png"
+import Logo from "./../../assets/images/TrendifyLogo2.png"
 import { useSelector } from "react-redux";
 import { selectItems } from "../cart/cartSlice";
 import { selectLoggedInUser } from "../auth/authSlice";
@@ -47,7 +47,7 @@ function NavBar({ children }) {
                     <div className="flex-shrink-0">
                       <Link to="/">
                         <img
-                          className="h-72 w-18"
+                          className="h-72 w-15"
                           src={Logo}
                           alt="Your Company"
                         />
