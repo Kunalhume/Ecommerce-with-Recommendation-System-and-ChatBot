@@ -58,6 +58,7 @@ function Checkout() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
           <div className="lg:col-span-3 ">
+
             <form className="bg-white px-5 py-12 mt-12"  noValidate onSubmit={handleSubmit((data)=>{
               console.log(data)
             dispatch(
@@ -68,8 +69,8 @@ function Checkout() {
         })}>
               <div className="space-y-12">
                 <div className="border-b pt-8 border-gray-900/10 pb-12">
-                  <h2 className="text-base font-semibold leading-7 text-gray-900">
-                    addressal Information
+                  <h2 className="text-2xl font-semibold leading-7 text-gray-900">
+                    Personal Information
                   </h2>
                   <p className="mt-1 text-sm leading-6 text-gray-600">
                     Use a permanent address where you can receive mail.
@@ -219,6 +220,21 @@ function Checkout() {
                   </button>
                 </div>
 
+                <div className="mt-6 flex items-center justify-end gap-x-6">
+                  <button
+                    type="button"
+                    className="text-sm font-semibold leading-6 text-gray-900"
+                  >
+                    Reset
+                  </button>
+                  <button
+                    type="submit"
+                    className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  >
+                    Add Address
+                  </button>
+                </div> 
+
                 <div className="border-b border-gray-900/10 pb-12">
                   <h2 className="text-base font-semibold leading-7 text-gray-900">
                     Address
@@ -228,6 +244,7 @@ function Checkout() {
                   </p>
                   <ul >
                     {user.addresses && user.addresses.map((address,index) => (
+
                       <li
                         key={index}
                         className="flex justify-between gap-x-6 py-5 px-5 border-solid border-2 border-color-grey-200 p-2"
@@ -246,10 +263,10 @@ function Checkout() {
                             <p className="text-sm font-semibold leading-6 text-gray-900">
                               {address.name}
                             </p>
-                            <p className="mt-1 truncate text-xs leading-5 text-gray-500">
+                            <p className="text-sm leading-5 text-gray-500">
                               {address.street}
                             </p>
-                            <p className="text-sm leading-6 text-gray-500">
+                            <p className="mt-1 truncate text-xs leading-5 text-gray-500">
                               Pincode : {address.pinCode}
                             </p>
                           </div>
@@ -314,21 +331,6 @@ function Checkout() {
                     </fieldset>
                   </div>
                 </div>
-              </div>
-
-              <div className="mt-6 flex items-center justify-end gap-x-6">
-                <button
-                  type="button"
-                  className="text-sm font-semibold leading-6 text-gray-900"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                >
-                  Save
-                </button>
               </div>
             </form>
           </div>
