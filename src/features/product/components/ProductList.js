@@ -436,7 +436,7 @@ function ProductGrid({products,status}){
                 </div>
                 <div>
                 <p className="text-sm block font-medium text-gray-900">
-                  $ {discountedPrice(product)}
+                $ {discountedPrice(product)}
                   </p>
                   <p className="text-sm block line-through font-medium text-gray-400">
                   $ {product.price}
@@ -445,7 +445,7 @@ function ProductGrid({products,status}){
                 </div>
               </div>
               {product.deleted && (<div>
-               <p className="text-sm text-red-400">Product Deleted</p>
+               <p className="text-sm text-red-400">Out of Stock</p>
               </div>
               )}
                {product.stock <= 0 && (<div>
